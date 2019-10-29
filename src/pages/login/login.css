@@ -1,0 +1,16 @@
+.login {
+  background-image: url("./image/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeate;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-validate {
+  margin: 0 auto;
+  width: 400px;
+  height: 300px;
+}
