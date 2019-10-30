@@ -10,4 +10,4 @@ class NotFoundScreen extends Component {
   }
 }
 
-export default NotFoundScreen;
+export default NotFoundScreen;   
