@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class NotFoundScreen extends Component {
   render() {
     return (
-      <div>
-        NotFoundScreen
+      <div className ='not-found'>
+       not found
       </div>
     );
   }

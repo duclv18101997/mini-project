@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import "./login.css";
 import { ValidationForm, TextInput } from "react-bootstrap4-form-validation";
 import validator from "validator";
+import { withRouter } from 'react-router' 
 class Login extends Component {
     state = {
-        firstName: "",
+        userName: "",
         password: "",
     };
 
@@ -16,54 +17,57 @@ class Login extends Component {
 
     handleSubmit = (e, formData, inputs) => {
         e.preventDefault();
-        alert(JSON.stringify(formData, null, 2));
-    };
-
-    handleErrorSubmit = (e, formData, errorInputs) => {
-        console.error(errorInputs);
+       this.props.history.push('/test')
     };
 
     render() {
         return (
             <div className='login containerfluid'>
-                <div className='form-validate'>
-                    <ValidationForm
-                        onSubmit={this.handleSubmit}
-                        onErrorSubmit={this.handleErrorSubmit}
-                    >
-                        <div className='form-group'>
-                            <label htmlFor='firstName'>User name</label>
-                            <TextInput
-                                name='firstName'
-                                id='firstName'
-                                required
-                                value={this.state.firstName}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                        <div className='form-group'>
-                            <label htmlFor='password'>Password</label>
-                            <TextInput
-                                name='password'
-                                id='password'
-                                type='password'
-                                required
-                                errorMessage={{
-                                    required: "Password is required",
+                <div>
+                    <div className='logo-login'> 
+                    <img src={require('./image/computer.png')}/>
+                    </div>
+                    <div className='form-validate'>
+                        <ValidationForm
+                            onSubmit={this.handleSubmit}
+                            onErrorSubmit={this.handleErrorSubmit}
+                        >
+                            <div className='form-group'>
+                                <label className='title'>User name</label>
+                                <TextInput
+                                    name='userName'
+                                    required
+                                    errorMessage={{
+                                        required: "Username is required",
+                                    }}
+                                    value={this.state.userName}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <label className='title'>Password</label>
+                                <TextInput
+                                    name='password'
+                                    type='password'
+                                    required
+                                    errorMessage={{
+                                        required: "Password is required",
 
-                                }}
-                                value={this.state.password}
-                                onChange={this.handleChange}
-                            />
-                        </div>
-                        <div className='form-group'>
-                            <button className='btn btn-primary'>Submit</button>
-                        </div>
-                    </ValidationForm>
+                                    }}
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                            <div className='form-group'>
+                                <button className='btn btn-primary'>Login</button>
+                            </div>
+                        </ValidationForm>
+                    </div>
                 </div>
+
             </div>
         );
     }
 }
-
+Login = withRouter(Login)
 export default Login;

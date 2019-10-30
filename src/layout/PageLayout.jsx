@@ -34,7 +34,7 @@ class PageLayout extends Component {
                 />
                 <Route path='/create/test' component={AddTest} exact />
                 <Route path='/create/question' component={AddQuestion} exact />
-
+               
                 <Footer />
               </Layout>
             </Layout>
